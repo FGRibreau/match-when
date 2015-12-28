@@ -1,5 +1,4 @@
-match-when - Pattern matching for modern JavaScript
-===================================================
+### match-when - Pattern matching for modern JavaScript
 
 
 
@@ -8,7 +7,7 @@ There is a lot more to do but after some late work, that's all for tonight!
 
 *\* well, of course, they are not keywords but simple functions*
 
-### Usage
+#### Usage
 
 The setup is pretty simple, simply require the library with `match` and `when` and you are ready to go!
 
@@ -49,7 +48,7 @@ Clear and simple, note that `when()` is a catch-all pattern and should always be
 // [ 'two', 'many', 'one', 'two' ]
 ```
 
-#### arrays
+##### Arrays
 
 
 It also works with **arrays**:
@@ -65,7 +64,7 @@ function length(list){
 length([1, 1, 1]); // 3
 ```
 
-#### OR
+##### OR
 
 Sadly JavaScript does not offer us a way to overload operators so we're stuck with `when.or`:
 
@@ -81,11 +80,11 @@ function parseArgument(arg){
 parseArgument(process.argv.slice(1)); // displayHelp || displayVersion || (binded)unknownArgument
 ```
 
-#### AND
+##### AND
 
 
 
-### Supported patterns:
+#### Supported patterns:
 
 - `{ x1: pattern1, ..., xn: pattern }` - matches any object with property names `x1` to `xn` matching patterns `pattern1` to `pattern`, respectively. Only the own properties of the pattern are used.
 - `when.or()`
