@@ -5,8 +5,6 @@
 Adding pattern matching to JavaScript (ES6+) through two new special *keywords*\* `match` and `when`. The main goals are **safety** and **shortness**.
 There is a lot more to do but after some late work, that's all for tonight!
 
-*\* well, of course, they are not keywords but simple functions*
-
 #### Usage
 
 The setup is pretty simple, simply require the library with `match` and `when` and you are ready to go!
@@ -88,3 +86,5 @@ parseArgument(process.argv.slice(1)); // displayHelp || displayVersion || (bind
 
 - `{ x1: pattern1, ..., xn: pattern }` - matches any object with property names `x1` to `xn` matching patterns `pattern1` to `pattern`, respectively. Only the own properties of the pattern are used.
 - `when.or()`
+
+\* *well, of course, they are not keywords but simple functions*
