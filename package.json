@@ -7,6 +7,13 @@
     "test": "mocha *.test.js",
     "test-watch": "mocha -w *.test.js"
   },
+  "keywords": [
+    "pattern-matching",
+    "pattern matching",
+    "pattern",
+    "match",
+    "when"
+  ],
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "devDependencies": {
