@@ -1,0 +1,16 @@
+{
+  "name": "match-when",
+  "version": "1.0.0",
+  "description": "match-when - Pattern matching for modern JavaScript",
+  "main": "match.js",
+  "scripts": {
+    "test": "mocha *.test.js",
+    "test-watch": "mocha -w *.test.js"
+  },
+  "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}
