@@ -1,6 +1,6 @@
 ### match-when - Pattern matching for modern JavaScript
 
-
+[![Circle CI](https://circleci.com/gh/FGRibreau/match-when/tree/master.svg?style=svg)](https://circleci.com/gh/FGRibreau/match-when/tree/master)
 
 Adding pattern matching to JavaScript (ES6+) through two new special *keywords*\* `match` and `when`. The main goals are **safety** and **shortness**.
 There is a lot more to do but after some late work, that's all for tonight!
