@@ -78,13 +78,20 @@ function parseArgument(arg){
 parseArgument(process.argv.slice(1)); // displayHelp || displayVersion || (binded)unknownArgument
 ```
 
-##### AND
+### Supported patterns:
 
 
+- `{ x1: pattern1, ..., xn: patternn }` - matches any object with property names `x1` to `xn` matching patterns `pattern1` to `patternn`, respectively. Only the own properties of the pattern are used.
+- `[pattern0, ..., patternn]` - matches any object with property names 0 to n matching patterns `pattern0` to `patternn`, respectively.
+- `when.or(pattern0, pattern1, ...)` - matches if one `pattern` matches.
 
-#### Supported patterns:
+### Todo:
 
-- `{ x1: pattern1, ..., xn: pattern }` - matches any object with property names `x1` to `xn` matching patterns `pattern1` to `pattern`, respectively. Only the own properties of the pattern are used.
-- `when.or()`
+I will accept PR with their associated tests for the following features:
+
+- `match.and(pattern, ...)` - matches if every pattern matches.
+- support `range(x, y)`
+
+[todo inspired by pattern-match](https://github.com/dherman/pattern-match#patterns).
 
 \* *well, of course, they are not keywords but simple functions*
