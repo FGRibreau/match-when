@@ -4,8 +4,8 @@
   "description": "match-when - Pattern matching for modern JavaScript",
   "main": "match.js",
   "scripts": {
-    "test": "mocha *.test.js",
-    "test-watch": "mocha -w *.test.js",
+    "test": "mocha {**,*/**}.test.js",
+    "test-watch": "mocha -w {**,*/**}.test.js",
     "changelog": "github-changes --o $(node -p 'process.env.npm_package_repository_url.split(\"/\")[3];') --r $(node -p 'a=process.env.npm_package_repository_url.split(\"/\");a[a.length-1].split(\".\")[0]') --token $CHANGELOG_GITHUB_TOKEN_FG -f CHANGELOG.md",
     "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master"
   },
