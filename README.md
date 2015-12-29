@@ -114,3 +114,5 @@ I work at [iAdvize](iadvize.com) as a Lead Developer and Architect. iAdvize is t
 We are looking for a [**NodeJS backend developer**](http://smrtr.io/FqP79g), a [Scala backend developer](http://smrtr.io/FqP79g), a [**JavaScript frontend developer**](http://smrtr.io/wR-y4Q), a [Full-stack Developer](http://smrtr.io/SGhrew) and a [DevOps System Engineer](http://smrtr.io/OIFFMQ) in Paris or Nantes. **[Send me a tweet](https://twitter.com/FGRibreau) if you have any questions**!
 
 ## [The Story](http://blog.fgribreau.com/2015/12/match-when-pattern-matching-for-modern.html)
+
+## [Changelog](/CHANGELOG.md)
