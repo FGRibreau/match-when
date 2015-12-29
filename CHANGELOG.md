@@ -1,6 +1,22 @@
 ## Change Log
 
-### upcoming (2015/12/29 10:05 +00:00)
+### v1.2.0 (2015/12/29 17:18 +00:00)
+- [22d747c](https://github.com/FGRibreau/match-when/commit/22d747c1df0640df967db6e0972e148fd15cea8a) Release v1.2.0. (@FGRibreau)
+- [#1](https://github.com/FGRibreau/match-when/pull/1) Merge pull request #1 from mjgpy3/feature_range (@mjgpy3)
+- [b1f7cdd](https://github.com/FGRibreau/match-when/commit/b1f7cdd353331a40b0f24bdec36bea07e0c74749) feat(range) inclusive (@mjgpy3)
+- [88ee496](https://github.com/FGRibreau/match-when/commit/88ee496473b5dc9163649d9b42695203feebc1b9) docs(readme) (@FGRibreau)
+- [0033e79](https://github.com/FGRibreau/match-when/commit/0033e79ffab7d7d907f97c635c120a4d6a45198d) docs(readme) (@FGRibreau)
+- [56d8eaa](https://github.com/FGRibreau/match-when/commit/56d8eaaf4b05ee3084171d3fe0157541c12ca843) docs(readme) (@FGRibreau)
+- [20ba1a9](https://github.com/FGRibreau/match-when/commit/20ba1a95c4507ae7a6af15937a2e57242774e441) docs(readme) (@FGRibreau)
+
+### v1.1.0 (2015/12/29 11:07 +00:00)
+- [db40f89](https://github.com/FGRibreau/match-when/commit/db40f89f023cec3b9ce1069c10ce685632d5fcfd) Release v1.1.0. (@FGRibreau)
+- [e18ecfc](https://github.com/FGRibreau/match-when/commit/e18ecfc9266feb4e1e802a360be5dd479541263c) feat(match): implemented support for RegExp (@FGRibreau)
+- [1c30884](https://github.com/FGRibreau/match-when/commit/1c30884952b5bfecd3c2318f72f6141754822d21) feat(match): added support for `when.and` (@FGRibreau)
+- [5ff4d31](https://github.com/FGRibreau/match-when/commit/5ff4d318c63af82ae646bc9a9b2988dacd306b50) style(match): added documentation, removed unused code (@FGRibreau)
+- [69abbff](https://github.com/FGRibreau/match-when/commit/69abbff09c04404badb84e0ad81fd26322302d0f) docs(register) (@FGRibreau)
+- [9873763](https://github.com/FGRibreau/match-when/commit/9873763d62d15d65076fad25131d44c910d1ea4d) fix(package): execute every tests (@FGRibreau)
+- [23c7af1](https://github.com/FGRibreau/match-when/commit/23c7af1458a4ffde1450a473ec1f77076461112b) feat(changelog) (@FGRibreau)
 - [465f67e](https://github.com/FGRibreau/match-when/commit/465f67e029e8e3f5f534e79bb75b597c1b7c86dc) docs(readme) (@FGRibreau)
 - [7951908](https://github.com/FGRibreau/match-when/commit/79519083dbed14d58b80e33b67d4f226eefad486) docs(readme) (@FGRibreau)
 - [c22404a](https://github.com/FGRibreau/match-when/commit/c22404ac4565a1a19eca8371ee58618d7a03ee60) docs(readme) (@FGRibreau)
