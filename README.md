@@ -1,6 +1,6 @@
 ### match-when - Pattern matching for modern JavaScript [![Circle CI](https://circleci.com/gh/FGRibreau/match-when/tree/master.svg?style=svg)](https://circleci.com/gh/FGRibreau/match-when/tree/master)
 
-> Finally a **clear**, **succinct** and *safe* syntax to do Pattern Matching in modern JavaScript.
+> Finally a **clear**, **succinct** and *safe* syntax to do Pattern Matching in modern JavaScript. [(backstory)](http://blog.fgribreau.com/2015/12/match-when-pattern-matching-for-modern.html)
 
 #### Usage
 
