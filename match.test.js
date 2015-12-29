@@ -131,6 +131,64 @@ describe('match', () => {
     })
   });
 
+  describe('when.range', () => {
+    const rangeStart = 0,
+      rangeEnd = 5;
+
+    beforeEach(function () {
+      this.withinRange = match({
+        [when.range(rangeStart, rangeEnd)]: true,
+        [when()]: false
+      });
+    });
+
+    describe('given a value within the range', function () {
+      it('should match', function () {
+        t.isTrue(this.withinRange(rangeStart+1));
+      });
+    });
+
+    describe('given a value at the lower bound', function () {
+      it('should match', function () {
+        t.isTrue(this.withinRange(rangeStart));
+      });
+    });
+
+    describe('given a value at the upper bound', function () {
+      it('should match', function () {
+        t.isTrue(this.withinRange(rangeEnd));
+      });
+    });
+
+    describe('given a value above the upper bound', function () {
+      it('should not match', function () {
+        t.isFalse(this.withinRange(rangeEnd+1));
+      });
+    });
+
+    describe('given a value below the lower bound', function () {
+      it('should not match', function () {
+        t.isFalse(this.withinRange(rangeStart-1));
+      });
+    });
+
+    describe('the example in the docs', function () {
+      it('works correctly', function () {
+        var result = [12, 42, 99, 101].map(match({
+          [when.range(0, 41)]: '< answer',
+          [when.range(43, 100)]: '> answer',
+          [when(42)]: 'answer',
+          [when()]: '< 0, or > 100'
+        }));
+
+        var expected = ['< answer', 'answer', '> answer', '< 0, or > 100']
+
+        t.deepEqual(result, expected);
+      });
+    });
+
+  });
+
   describe('yielding', () => {
     it('should also be able to yield primitive values', () => {
       const output = input.map(match({

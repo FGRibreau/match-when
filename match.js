@@ -5,6 +5,8 @@ const _patternOR = Symbol('match.pattern.OR');
 const _patternORStr = _patternOR.toString(); // dirty hack
 const _patternAND = Symbol('match.pattern.AND');
 const _patternANDStr = _patternAND.toString(); // dirty hack
+const _patternRANGE = Symbol('match.pattern.RANGE');
+const _patternRANGEStr = _patternRANGE.toString(); // dirty hack
 
 const _patternREGEXP = Symbol('match.pattern.REGEXP');
 const _patternREGEXPStr = _patternREGEXP.toString(); // dirty hack
@@ -77,6 +79,13 @@ function _match(props){
       };
     }
 
+    if(props[0] === _patternRANGEStr){
+      props.shift();
+      return function(input){
+        return props[0] <= input && input <= props[1];
+      };
+    }
+
     if(props[0] === _patternREGEXPStr){
       const res = EXTRACT_PATTERN_AND_FLAGS.exec(props[1]);
       return _matching.bind(null, new RegExp(res[1], res[2]));
@@ -118,6 +127,10 @@ when.or = function(/* args... */){
 // upcoming...
 when.and = function(/* args... */){
   return JSON.stringify([_patternAND.toString(), Array.prototype.slice.call(arguments)]);
+};
+
+when.range = function(start, end){
+  return JSON.stringify([_patternRANGE.toString(), start, end]);
 };
 
 when.unserialize = function(props, value){
