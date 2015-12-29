@@ -36,9 +36,11 @@ Clear and simple right?
 <img style="width:100%" src="https://cloud.githubusercontent.com/assets/138050/12031158/0e37afda-ae09-11e5-9462-873b45cbb2b4.gif">
 </p>
 
-Note that `when()` is a catch-all pattern and should always be the last condition. If you forget, `match()` will throw a `MissingCatchAllPattern` exception.
+Note that `when()` is a catch-all pattern and should always be the last condition. If you forget it `match()` will throw a `MissingCatchAllPattern` exception.
 
-`match` works well with .map (and others) too:
+##### High Order Functions
+
+`match` works well with high order functions like `map`, `filter` (and so on) too:
 
 ```js
 [2, 4, 1, 2].map(match({
