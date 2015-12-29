@@ -1,6 +1,6 @@
 ### match-when - Pattern matching for modern JavaScript [![Circle CI](https://circleci.com/gh/FGRibreau/match-when/tree/master.svg?style=svg)](https://circleci.com/gh/FGRibreau/match-when/tree/master)
 
-> Finally a **clear**, **succinct** and *safe* syntax for Pattern Matching in modern JavaScript.
+> Finally a **clear**, **succinct** and *safe* syntax to do Pattern Matching in modern JavaScript.
 
 #### Usage
 
@@ -36,6 +36,12 @@ Clear and simple right?
 </p>
 
 Note that `when()` is a catch-all pattern and should always be the last condition. If you forget it `match()` will throw a `MissingCatchAllPattern` exception.
+
+##### Setup
+
+```
+npm i match-when -S
+```
 
 ##### High Order Functions
 
@@ -124,6 +130,7 @@ I will accept PR with their associated tests for the following features:
 
 
 - support `range(x, y)`
+- define and implement some syntax to support wildcards
 - try and maybe support `match(input, {patterns...})` syntax instead of `match({patterns...})(input)`?
 
 [todo-list inspired by pattern-match from dherman](https://github.com/dherman/pattern-match#patterns).
