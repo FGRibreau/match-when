@@ -95,11 +95,27 @@ const protocols = repositories.map(match({
 }))
 ```
 
+
+##### Regular Expressions
+
+match-when supports [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) as well:
+
+```js
+['hey.com', 'fg@plop.com', 'fg+plop@plop.com', 'wat'].filter(match({
+  [when(/\S+@\S+\.\S+/)]: false, // **seems** to be a valid email (unsafe regex for doc purpose only)
+  [when()]: true // the email could be invalid, return it
+}));
+
+// ['hey.com', 'wat']
+```
+
+
 ### Supported patterns:
 
 
 - `{ x1: pattern1, ..., xn: patternn }` - matches any object with property names `x1` to `xn` matching patterns `pattern1` to `patternn`, respectively. Only the own properties of the pattern are used.
 - `[pattern0, ..., patternn]` - matches any object with property names 0 to n matching patterns `pattern0` to `patternn`, respectively.
+- `/pattern/flags` - matches any values than pass the regular expression test
 - `when.or(pattern0, pattern1, ...)` - matches if one `pattern` matches.
 
 ### Todo:

@@ -63,6 +63,25 @@ describe('match', () => {
 
       t.strictEqual(length([1, 2, 3]), 3);
       t.strictEqual(length([{}, {}, {}, {}]), 4);
+    });
+
+    it('should support regexp match', () => {
+      const output = [3, ' 2', 1, 'zEro', 90].map(match({
+        [when(/1/)]: 'one',
+        [when(/2/g)]: 'two',
+        [when(/3/)]: 'three',
+        [when(/zero/i)]: 'zero',
+        [when()]: v => v
+      }));
+
+      t.deepEqual(output, ['three', 'two', 'one', 'zero', 90]);
+
+      const invalidEmails = ['hey.com', 'fg@plop.com', 'fg+plop@plop.com', 'wat'].filter(match({
+        [when(/\S+@\S+\.\S+/)]: false, // **seems** to be a valid email
+        [when()]: true // the email may be invalid, return it
+      }));
+
+      t.deepEqual(invalidEmails, ['hey.com', 'wat']);
     })
 
     describe('when.and', () => {

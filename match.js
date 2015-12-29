@@ -6,6 +6,10 @@ const _patternORStr = _patternOR.toString(); // dirty hack
 const _patternAND = Symbol('match.pattern.AND');
 const _patternANDStr = _patternAND.toString(); // dirty hack
 
+const _patternREGEXP = Symbol('match.pattern.REGEXP');
+const _patternREGEXPStr = _patternREGEXP.toString(); // dirty hack
+const EXTRACT_PATTERN_AND_FLAGS = /\/(.*)\/(.*)/;
+
 function MissingCatchAllPattern() {
   Error.call(this, 'Missing when() catch-all pattern as last match argument, add [when()]: void 0');
   if (!('stack' in this)){
@@ -46,6 +50,10 @@ function when(props){
     return _catchAllSymbol;
   }
 
+  if(props instanceof RegExp){
+    return JSON.stringify([_patternREGEXP.toString(), props.toString()]);
+  }
+
   return JSON.stringify(props);
 }
 
@@ -68,6 +76,11 @@ function _match(props){
         return props[0].every((prop) => _matching(prop, input));
       };
     }
+
+    if(props[0] === _patternREGEXPStr){
+      const res = EXTRACT_PATTERN_AND_FLAGS.exec(props[1]);
+      return _matching.bind(null, new RegExp(res[1], res[2]));
+    }
   }
 
   function _matching(props, input){
@@ -75,6 +88,10 @@ function _match(props){
     if(Array.isArray(input)){
       // @todo yes this is a quick and dirty way, optimize this
       return JSON.stringify(props) === JSON.stringify(input);
+    }
+
+    if(props instanceof RegExp){
+      return props.test(input);
     }
 
     if(typeof input === 'object'){
