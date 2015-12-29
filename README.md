@@ -84,6 +84,17 @@ function parseArgument(arg){
 parseArgument(process.argv.slice(1)); // displayHelp || displayVersion || (binded)unknownArgument
 ```
 
+##### AND
+
+```js
+const protocols = repositories.map(match({
+  [when.and({useSSH:true}, {useSSH: true})]: 'git+ssh:',
+  [when.and({useSSH:true}, {useHTTP: true})]: 'git+http:',
+  [when.and({useSSH:true}, {useHTTPS: true})]: 'git+https:',
+  [when()]: 'unsupported:'
+}))
+```
+
 ### Supported patterns:
 
 

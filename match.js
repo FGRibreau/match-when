@@ -61,6 +61,13 @@ function _match(props){
         return props[0].some((prop) => _matching(prop, input));
       };
     }
+
+    if(props[0] === _patternANDStr){
+      props.shift();
+      return function(input){
+        return props[0].every((prop) => _matching(prop, input));
+      };
+    }
   }
 
   function _matching(props, input){
@@ -92,9 +99,9 @@ when.or = function(/* args... */){
 
 // mixed -> String
 // upcoming...
-// when.and = function(/* args... */){
-//   return JSON.stringify([_patternAND.toString(), Array.prototype.slice.call(arguments)]);
-// };
+when.and = function(/* args... */){
+  return JSON.stringify([_patternAND.toString(), Array.prototype.slice.call(arguments)]);
+};
 
 when.unserialize = function(props, value){
   return {

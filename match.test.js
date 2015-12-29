@@ -65,37 +65,51 @@ describe('match', () => {
       t.strictEqual(length([{}, {}, {}, {}]), 4);
     })
 
-    it('should support conditional matching', () => {
-      // example from https://kerflyn.wordpress.com/2011/02/14/playing-with-scalas-pattern-matching/
+    describe('when.and', () => {
+      it('should support AND conditional', () => {
+        const output = input.map(match({
+          [when.and({protocol:'AMQP'}, {i:5})]: o => o.i,
+          [when.and({protocol:'HTTP'}, {i:10})]: o => o.i,
+          [when()]: (o) => 0,
+        }));
 
-      function parseArgument(arg){
-        return match({
-          [when.or("-h", "--help")]: () => displayHelp,
-          [when.or("-v", "--version")]: () => displayVersion,
-          [when()]: (whatever) => unknownArgument.bind(null, whatever)
-        })(arg);
-      }
-
-      function displayHelp(){
-        console.log('help.');
-      }
-
-      function displayVersion(){
-        console.log('v0.0.0');
-      }
-
-      function unknownArgument(whatever){
-        throw new Error(`command ${whatever} not found`);
-      }
-
-      t.strictEqual(parseArgument('-h'), displayHelp);
-      t.strictEqual(parseArgument('--help'), displayHelp);
-      t.strictEqual(parseArgument('-v'), displayVersion);
-      t.strictEqual(parseArgument('--version'), displayVersion);
-      t.throws(() => {
-        parseArgument('hey')();
-      });
+        t.deepEqual(output, [10, 0, 5, 0]);
+      })
     });
+
+    describe('when.or', () => {
+      it('should support OR conditional matching', () => {
+        // example from https://kerflyn.wordpress.com/2011/02/14/playing-with-scalas-pattern-matching/
+
+        function parseArgument(arg){
+          return match({
+            [when.or("-h", "--help")]: () => displayHelp,
+            [when.or("-v", "--version")]: () => displayVersion,
+            [when()]: (whatever) => unknownArgument.bind(null, whatever)
+          })(arg);
+        }
+
+        function displayHelp(){
+          console.log('help.');
+        }
+
+        function displayVersion(){
+          console.log('v0.0.0');
+        }
+
+        function unknownArgument(whatever){
+          throw new Error(`command ${whatever} not found`);
+        }
+
+        t.strictEqual(parseArgument('-h'), displayHelp);
+        t.strictEqual(parseArgument('--help'), displayHelp);
+        t.strictEqual(parseArgument('-v'), displayVersion);
+        t.strictEqual(parseArgument('--version'), displayVersion);
+        t.throws(() => {
+          parseArgument('hey')();
+        });
+      });
+    })
   });
 
   describe('yielding', () => {
