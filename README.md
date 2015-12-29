@@ -115,13 +115,14 @@ match-when supports [regular expressions](https://developer.mozilla.org/en-US/do
 - `{ x1: pattern1, ..., xn: patternn }` - matches any object with property names `x1` to `xn` matching patterns `pattern1` to `patternn`, respectively. Only the own properties of the pattern are used.
 - `[pattern0, ..., patternn]` - matches any object with property names 0 to n matching patterns `pattern0` to `patternn`, respectively.
 - `/pattern/flags` - matches any values than pass the regular expression test
-- `when.or(pattern0, pattern1, ...)` - matches if one `pattern` matches.
+- `when.or(pattern0, ..., patternn)` - matches if at [least one](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some) `pattern` matches.
+- `when.and(pattern0, ..., patternn)` - matches if [every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) `pattern` matches.
 
 ### Todo:
 
 I will accept PR with their associated tests for the following features:
 
-- `match.and(pattern, ...)` - matches if every pattern matches.
+
 - support `range(x, y)`
 - try and maybe support `match(input, {patterns...})` syntax instead of `match({patterns...})(input)`?
 
