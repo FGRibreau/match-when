@@ -1,6 +1,4 @@
-### match-when - Pattern matching for modern JavaScript
-
-[![Circle CI](https://circleci.com/gh/FGRibreau/match-when/tree/master.svg?style=svg)](https://circleci.com/gh/FGRibreau/match-when/tree/master)
+### match-when - Pattern matching for modern JavaScript [![Circle CI](https://circleci.com/gh/FGRibreau/match-when/tree/master.svg?style=svg)](https://circleci.com/gh/FGRibreau/match-when/tree/master)
 
 Adding pattern matching to JavaScript (ES6+) through two new special *keywords*\* `match` and `when`. The main goals are **safety** and **shortness**.
 There is a lot more to do but after some late work, that's all for tonight!
@@ -32,7 +30,11 @@ function fact(n){
 fact(10); // 3628800
 ```
 
-Clear and simple, note that `when()` is a catch-all pattern and should always be the last condition. If you forget, `match()` will throw a `MissingCatchAllPattern` exception.
+Clear and simple right?
+
+![oh-boy-2](https://cloud.githubusercontent.com/assets/138050/12031158/0e37afda-ae09-11e5-9462-873b45cbb2b4.gif)
+
+Note that `when()` is a catch-all pattern and should always be the last condition. If you forget, `match()` will throw a `MissingCatchAllPattern` exception.
 
 `match` works well with .map (and others) too:
 
@@ -92,6 +94,16 @@ I will accept PR with their associated tests for the following features:
 - `match.and(pattern, ...)` - matches if every pattern matches.
 - support `range(x, y)`
 
-[todo inspired by pattern-match](https://github.com/dherman/pattern-match#patterns).
+[todo-list inspired by pattern-match from dherman](https://github.com/dherman/pattern-match#patterns).
 
 \* *well, of course, they are not keywords but simple functions*
+
+## iAdvize
+
+<p align="center">
+<a target="_blank" href="https://vimeo.com/121470910"><img style="width:100%" src="https://i.vimeocdn.com/video/509763980.png?mw=638&mh=1080&q=70"></a>
+</p>
+
+I work at [iAdvize](iadvize.com) as a Lead developer and software architect. iAdvize is the leading real-time customer engagement platform in Europe and is used in 40 different countries. We are one of the french startup with the [fastest growth](http://www.iadvize.com/fr/wp-content/uploads/sites/2/2014/11/CP-Fast-50.pdf) and one of [the **greatest place to work** in **France**](https://vimeo.com/122438055).
+
+We are looking for a [NodeJS backend developer](http://smrtr.io/FqP79g), a [Scala backend developer](http://smrtr.io/FqP79g), a [JavaScript frontend developer](http://smrtr.io/wR-y4Q), a [Full-stack Developer](http://smrtr.io/SGhrew) and a [DevOps System Engineer](http://smrtr.io/OIFFMQ) in Paris or Nantes. **[Send me a tweet](https://twitter.com/FGRibreau) if you have any questions**!
