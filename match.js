@@ -16,7 +16,8 @@ function MissingCatchAllPattern() {
 MissingCatchAllPattern.prototype = Object.create(Error.prototype);
 
 function match(obj){
-  var matchers = []; // pre-compute matchers
+  // pre-compute matchers
+  let matchers = [];
 
   for(let key in obj){
     matchers.push(when.unserialize(key, obj[key]));
@@ -26,12 +27,12 @@ function match(obj){
     throw new MissingCatchAllPattern();
   }
 
-  // add catch all pattern at the end
+  // add catch-all pattern at the end
   matchers.push(when.unserialize(_catchAllSymbol, obj[_catchAllSymbol]));
 
   return function(input){
-    for (var i = 0, iM = matchers.length; i < iM; i++) { // old school #perf
-      let matcher = matchers[i];
+    for (let i = 0, iM = matchers.length; i < iM; i++) { // old school #perf
+      const matcher = matchers[i];
       if(matcher.match(input)){
         return typeof matcher.call === 'function' ? matcher.call(input): matcher.call;
       }
@@ -43,10 +44,6 @@ function match(obj){
 function when(props){
   if(props === undefined){
     return _catchAllSymbol;
-  }
-
-  if(props === Number){
-    return _numberPattern;
   }
 
   return JSON.stringify(props);
@@ -69,7 +66,7 @@ function _match(props){
   function _matching(props, input){
     // implement array matching
     if(Array.isArray(input)){
-      // @todo optimize this
+      // @todo yes this is a quick and dirty way, optimize this
       return JSON.stringify(props) === JSON.stringify(input);
     }
 
@@ -94,9 +91,10 @@ when.or = function(/* args... */){
 };
 
 // mixed -> String
-when.and = function(/* args... */){
-  return JSON.stringify([_patternAND.toString(), Array.prototype.slice.call(arguments)]);
-};
+// upcoming...
+// when.and = function(/* args... */){
+//   return JSON.stringify([_patternAND.toString(), Array.prototype.slice.call(arguments)]);
+// };
 
 when.unserialize = function(props, value){
   return {
