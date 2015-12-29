@@ -100,7 +100,6 @@ const protocols = repositories.map(match({
 }))
 ```
 
-
 ##### Regular Expressions
 
 match-when supports [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) as well:
@@ -114,6 +113,18 @@ match-when supports [regular expressions](https://developer.mozilla.org/en-US/do
 // ['hey.com', 'wat']
 ```
 
+##### Range
+
+```js
+[12, 42, 99, 101].map(match({
+  [when.range(0, 41)]: '< answer',
+  [when.range(43, 100)]: '> answer',
+  [when(42)]: 'answer',
+  [when()]: '< 0, or > 100'
+}));
+
+// ['< answer', 'answer', '> answer', '< 0, or > 100']
+```
 
 ### Supported patterns:
 
@@ -129,7 +140,6 @@ match-when supports [regular expressions](https://developer.mozilla.org/en-US/do
 I will accept PR with their associated tests for the following features:
 
 
-- support `range(x, y)`
 - define and implement some syntax to support wildcards
 - try and maybe support `match(input, {patterns...})` syntax instead of `match({patterns...})(input)`?
 
