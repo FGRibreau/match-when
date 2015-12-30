@@ -15,6 +15,31 @@ describe('match', () => {
     })));
   });
 
+  describe('match(<input>, specification)', () => {
+    it('instantly performs the match, rather than returning a function', function () {
+      t.strictEqual(
+        match('value', {
+          [when('value')]: 42,
+          [when()]: 99
+        }),
+        42
+      );
+    });
+
+    describe('the example in the docs', function () {
+      it('works correctly', function () {
+        function fact(n){
+          return match(n, {
+            [when(0)]: 1,
+            [when()]: (n) => n * fact(n-1)
+          });
+        }
+
+        t.deepEqual(fact(10), 3628800);
+      });
+    });
+  });
+
   describe('matching', () => {
     it('should match objects based on properties', () => {
       const output = input.map(match({

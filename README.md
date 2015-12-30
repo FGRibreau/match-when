@@ -31,6 +31,19 @@ fact(10); // 3628800
 
 Clear and simple right?
 
+Alternatively, `match(<input>, patternSpecification)` can be used to instantly perform a match:
+
+```js
+function fact(n){
+  return match(n, {
+    [when(0)]: 1,
+    [when()]: (n) => n * fact(n-1)
+  });
+}
+
+fact(10); // 3628800
+```
+
 <p align="center">
 <img style="width:100%" src="https://cloud.githubusercontent.com/assets/138050/12031158/0e37afda-ae09-11e5-9462-873b45cbb2b4.gif">
 </p>
@@ -142,7 +155,6 @@ I will accept PR with their associated tests for the following features:
 
 
 - define and implement some syntax to support wildcards
-- try and maybe support `match(input, {patterns...})` syntax instead of `match({patterns...})(input)`?
 
 [todo-list inspired by pattern-match from dherman](https://github.com/dherman/pattern-match#patterns).
 

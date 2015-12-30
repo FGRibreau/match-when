@@ -21,7 +21,10 @@ function MissingCatchAllPattern() {
 
 MissingCatchAllPattern.prototype = Object.create(Error.prototype);
 
-function match(obj){
+function match(/* args... */){
+  const args = Array.from(arguments),
+    obj = args[args.length-1];
+
   // pre-compute matchers
   let matchers = [];
 
@@ -36,7 +39,7 @@ function match(obj){
   // add catch-all pattern at the end
   matchers.push(when.unserialize(_catchAllSymbol, obj[_catchAllSymbol]));
 
-  return function(input){
+  const calculateResult = function(input){
     for (let i = 0, iM = matchers.length; i < iM; i++) { // old school #perf
       const matcher = matchers[i];
       if(matcher.match(input)){
@@ -45,6 +48,7 @@ function match(obj){
     }
   };
 
+  return args.length === 2 ? calculateResult(args[0]) : calculateResult;
 }
 
 function when(props){
