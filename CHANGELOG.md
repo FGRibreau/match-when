@@ -1,5 +1,14 @@
 ## Change Log
 
+### v1.3.0 (2015/12/30 21:33 +00:00)
+- [02400e0](https://github.com/FGRibreau/match-when/commit/02400e0b795cb73753ca5f85228df27f0744cbc1) Release v1.3.0. (@FGRibreau)
+- [#3](https://github.com/FGRibreau/match-when/pull/3) Merge pull request #3 from mjgpy3/feature_instant_match_syntax (@mjgpy3)
+- [#4](https://github.com/FGRibreau/match-when/pull/4) Merge pull request #4 from arastu/patch-1 (@arastu)
+- [b2f987b](https://github.com/FGRibreau/match-when/commit/b2f987b3c49f9ff5a57a14f18a362e14a2805ca0) feat(instant match syntax) (@mjgpy3)
+- [c9be4bf](https://github.com/FGRibreau/match-when/commit/c9be4bf5242531cdd34bb1b00eec9e28afd3f091) fix iadvize link (@arastu)
+- [29286b5](https://github.com/FGRibreau/match-when/commit/29286b599f8eaca840e59602d0387df1c6019e4d) docs(readme) (@FGRibreau)
+- [5572b63](https://github.com/FGRibreau/match-when/commit/5572b63d10a46c0bd6dfdc3727de4a9129b6393e) docs(changelog): updated (@FGRibreau)
+
 ### v1.2.0 (2015/12/29 17:18 +00:00)
 - [22d747c](https://github.com/FGRibreau/match-when/commit/22d747c1df0640df967db6e0972e148fd15cea8a) Release v1.2.0. (@FGRibreau)
 - [#1](https://github.com/FGRibreau/match-when/pull/1) Merge pull request #1 from mjgpy3/feature_range (@mjgpy3)
