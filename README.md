@@ -1,4 +1,8 @@
-### match-when - Pattern matching for modern JavaScript [![Circle CI](https://circleci.com/gh/FGRibreau/match-when/tree/master.svg?style=svg)](https://circleci.com/gh/FGRibreau/match-when/tree/master)
+### match-when - Pattern matching for modern JavaScript 
+[![Circle CI](https://circleci.com/gh/FGRibreau/match-when/tree/master.svg?style=svg)](https://circleci.com/gh/FGRibreau/match-when/tree/master) [![Version](http://badge.fury.io/js/match-when.png)](http://badge.fury.io/js/match-when) 
+<!-- [![Downloads](http://img.shields.io/npm/dm/match-when.svg)](https://www.npmjs.com/package/match-when)
+![NPM](https://nodei.co/npm/match-when.png?downloadRank=true) ![NPM](https://nodei.co/npm-dl/match-when.png?months=3&height=2)
+-->
 
 > Finally a **clear**, **succinct** and *safe* syntax to do Pattern Matching in modern JavaScript. [(backstory)](http://blog.fgribreau.com/2015/12/match-when-pattern-matching-for-modern.html)
 
