@@ -15,7 +15,7 @@ const EXTRACT_PATTERN_AND_FLAGS = /\/(.*)\/(.*)/;
 function MissingCatchAllPattern() {
   Error.call(this, 'Missing when() catch-all pattern as last match argument, add [when()]: void 0');
   if (!('stack' in this)){
-    this.stack = (new Error).stack;
+    this.stack = (new Error()).stack;
   }
 }
 
@@ -46,12 +46,8 @@ function match(/* args... */){
   matchers.push(when.unserialize(_catchAllSymbol, obj[_catchAllSymbol]));
 
   const calculateResult = function(input){
-    for (let i = 0, iM = matchers.length; i < iM; i++) { // old school #perf
-      const matcher = matchers[i];
-      if(matcher.match(input)){
-        return typeof matcher.call === 'function' ? matcher.call(input): matcher.call;
-      }
-    }
+    const matched = matchers.find((matcher) => matcher.match(input));
+    return typeof matched.result === 'function' ? matched.result(input) : matched.result;
   };
 
   return args.length === 2 ? calculateResult(args[0]) : calculateResult;
@@ -161,11 +157,10 @@ when.unserialize = function(serializedKey, value){
   if(serializedKey === _catchAllSymbol){
     return {
       match: _true,
-      call: value,
+      result: value,
       position: Infinity
     };
   }
-
 
   // const {position, matcherConfiguration} = _unserialize(serializedKey);
   const deserialized = _unserialize(serializedKey);
@@ -174,10 +169,10 @@ when.unserialize = function(serializedKey, value){
 
   return {
     match: _match(matcherConfiguration),
-    call: value,
+    result: value,
     position: position
   };
-}
+};
 
 module.exports = {
   match,
