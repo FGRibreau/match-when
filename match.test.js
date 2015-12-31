@@ -5,6 +5,16 @@ const match = require('./match').match;
 // var match = require('./');
 const t = require('chai').assert;
 
+describe('when multiple values can be hit', () => {
+  it("doesn't hit the first one",  () => {
+    t.strictEqual(match({
+      [when.range(0, 43)]: 42,
+      [when(42)]: 72,
+      [when()]: 'never should be hit',
+    })(42), 42);
+  });
+});
+
 describe('match', () => {
   const input = [{protocol: 'HTTP', i:10}, {protocol: 'AMQP', i:11}, {protocol: 'AMQP', i:5}, {protocol: 'WAT', i:3}];
 

@@ -32,6 +32,12 @@ function match(/* args... */){
     matchers.push(when.unserialize(key, obj[key]));
   }
 
+  // since JS objects are unordered we need to reorder what for..in give us even if the order was already right
+  // because it depends on the JS engine implementation. See #2
+  matchers.sort(function(a, b){
+    return a.position < b.position ? -1 : 1;
+  });
+
   if(Object.getOwnPropertySymbols(obj).indexOf(_catchAllSymbol) === -1){
     throw new MissingCatchAllPattern();
   }
@@ -51,21 +57,34 @@ function match(/* args... */){
   return args.length === 2 ? calculateResult(args[0]) : calculateResult;
 }
 
+
 function when(props){
   if(props === undefined){
     return _catchAllSymbol;
   }
 
   if(props instanceof RegExp){
-    return JSON.stringify([_patternREGEXP.toString(), props.toString()]);
+    return _serialize([_patternREGEXP.toString(), props.toString()]);
   }
 
-  return JSON.stringify(props);
+  return _serialize(props);
+}
+
+when.__uid = 0;
+
+// Any -> String
+function _serialize(mixed){
+  return JSON.stringify([when.__uid++, mixed]);
+}
+
+// String -> [Number, Any]
+function _unserialize(str){
+  return JSON.parse(str);
 }
 
 function _true(){return true;}
 
-// mixed -> String
+// Any -> String
 function _match(props){
 
   if(Array.isArray(props)){
@@ -124,23 +143,39 @@ function _match(props){
 
 // mixed -> String
 when.or = function(/* args... */){
-  return JSON.stringify([_patternOR.toString(), Array.prototype.slice.call(arguments)]);
+  return _serialize([_patternOR.toString(), Array.prototype.slice.call(arguments)]);
 };
 
 // mixed -> String
 // upcoming...
 when.and = function(/* args... */){
-  return JSON.stringify([_patternAND.toString(), Array.prototype.slice.call(arguments)]);
+  return _serialize([_patternAND.toString(), Array.prototype.slice.call(arguments)]);
 };
 
 when.range = function(start, end){
-  return JSON.stringify([_patternRANGE.toString(), start, end]);
+  return _serialize([_patternRANGE.toString(), start, end]);
 };
 
-when.unserialize = function(props, value){
+when.unserialize = function(serializedKey, value){
+
+  if(serializedKey === _catchAllSymbol){
+    return {
+      match: _true,
+      call: value,
+      position: Infinity
+    };
+  }
+
+
+  // const {position, matcherConfiguration} = _unserialize(serializedKey);
+  const deserialized = _unserialize(serializedKey);
+  const matcherConfiguration = deserialized[1];
+  const position = deserialized[0];
+
   return {
-    match: props === _catchAllSymbol ? _true : _match(JSON.parse(props)),
-    call: value
+    match: _match(matcherConfiguration),
+    call: value,
+    position: position
   };
 }
 
