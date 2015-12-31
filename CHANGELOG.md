@@ -1,5 +1,11 @@
 ## Change Log
 
+### v1.3.1 (2015/12/31 10:03 +00:00)
+- [e6e200d](https://github.com/FGRibreau/match-when/commit/e6e200d010ba031523fe0a4420f458309d41c9b0) Release v1.3.1. (@FGRibreau)
+- [#6](https://github.com/FGRibreau/match-when/pull/6) Merge pull request #6 from FGRibreau/ISSUE-2-fix-unordered-js-objects (@FGRibreau)
+- [124e909](https://github.com/FGRibreau/match-when/commit/124e9098864009803d632f96612007802c59bae6) fix(match): fixes #2, fix JavaScript behavior, JS objects are an unordered collection of properties, match-when overcomes it (@FGRibreau)
+- [16f9655](https://github.com/FGRibreau/match-when/commit/16f965570756fb08e1ebfa6866adebc90e6f681e) docs(changelog): updated (@FGRibreau)
+
 ### v1.3.0 (2015/12/30 21:33 +00:00)
 - [02400e0](https://github.com/FGRibreau/match-when/commit/02400e0b795cb73753ca5f85228df27f0744cbc1) Release v1.3.0. (@FGRibreau)
 - [#3](https://github.com/FGRibreau/match-when/pull/3) Merge pull request #3 from mjgpy3/feature_instant_match_syntax (@mjgpy3)
