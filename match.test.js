@@ -10,7 +10,7 @@ describe('when multiple values can be hit', () => {
     t.strictEqual(match({
       [when.range(0, 43)]: 42,
       [when(42)]: 72,
-      [when()]: 'never should be hit',
+      [when()]: 'should never be hit',
     })(42), 42);
   });
 });
@@ -18,7 +18,7 @@ describe('when multiple values can be hit', () => {
 describe('match', () => {
   const input = [{protocol: 'HTTP', i:10}, {protocol: 'AMQP', i:11}, {protocol: 'AMQP', i:5}, {protocol: 'WAT', i:3}];
 
-  it('should throw if a catch-all pattern was not specified', () => {
+  it('throws if a catch-all pattern was not specified', () => {
     t.throws(() => input.map(match({
       [when({protocol:'HTTP'})]: (o) => o.i+1,
       [when({protocol:'AMQP'})]: (o) => o.i+2,
@@ -51,7 +51,7 @@ describe('match', () => {
   });
 
   describe('matching', () => {
-    it('should match objects based on properties', () => {
+    it('matches objects based on properties', () => {
       const output = input.map(match({
         [when({protocol:'HTTP', i:12})]: (o) => 1000,
         [when({protocol:'HTTP'})]: (o) => o.i+1,
@@ -64,7 +64,7 @@ describe('match', () => {
     });
 
 
-    it('should match arrays based on indexes and content', () => {
+    it('matches arrays based on indexes and content', () => {
       const output = [['a', 'b'], ['c'], ['d', 'e', 1]].map(match({
         [when(['c'])]: 1000,
         [when(['a', 'b'])]: 1001,
@@ -76,7 +76,7 @@ describe('match', () => {
       t.deepEqual(output, [1001, 1000, 1003]);
     });
 
-    it('should match number as well', () => {
+    it('matches number as well', () => {
       function fact(n){
         return match({
           [when(0)]: 1,
@@ -87,7 +87,7 @@ describe('match', () => {
       t.strictEqual(fact(10),3628800);
     });
 
-    it('should match empty array', () => {
+    it('matches empty array', () => {
       function length(list){
         return match({
           [when([])]: 0,
@@ -100,7 +100,7 @@ describe('match', () => {
       t.strictEqual(length([{}, {}, {}, {}]), 4);
     });
 
-    it('should support regexp match', () => {
+    it('supports regexp match', () => {
       const output = [3, ' 2', 1, 'zEro', 90].map(match({
         [when(/1/)]: 'one',
         [when(/2/g)]: 'two',
@@ -120,7 +120,7 @@ describe('match', () => {
     })
 
     describe('when.and', () => {
-      it('should support AND conditional', () => {
+      it('supports AND conditional', () => {
         const output = input.map(match({
           [when.and({protocol:'AMQP'}, {i:5})]: o => o.i,
           [when.and({protocol:'HTTP'}, {i:10})]: o => o.i,
@@ -132,7 +132,7 @@ describe('match', () => {
     });
 
     describe('when.or', () => {
-      it('should support OR conditional matching', () => {
+      it('supports OR conditional matching', () => {
         // example from https://kerflyn.wordpress.com/2011/02/14/playing-with-scalas-pattern-matching/
 
         function parseArgument(arg){
@@ -178,31 +178,31 @@ describe('match', () => {
     });
 
     describe('given a value within the range', function () {
-      it('should match', function () {
+      it('matches', function () {
         t.isTrue(this.withinRange(rangeStart+1));
       });
     });
 
     describe('given a value at the lower bound', function () {
-      it('should match', function () {
+      it('matches', function () {
         t.isTrue(this.withinRange(rangeStart));
       });
     });
 
     describe('given a value at the upper bound', function () {
-      it('should match', function () {
+      it('matches', function () {
         t.isTrue(this.withinRange(rangeEnd));
       });
     });
 
     describe('given a value above the upper bound', function () {
-      it('should not match', function () {
+      it('does not match', function () {
         t.isFalse(this.withinRange(rangeEnd+1));
       });
     });
 
     describe('given a value below the lower bound', function () {
-      it('should not match', function () {
+      it('does not match', function () {
         t.isFalse(this.withinRange(rangeStart-1));
       });
     });
@@ -225,7 +225,7 @@ describe('match', () => {
   });
 
   describe('yielding', () => {
-    it('should also be able to yield primitive values', () => {
+    it('yields primitive values', () => {
       const output = input.map(match({
         [when({protocol:'HTTP'})]: 1,
         [when({protocol:'AMQP'})]: 2,
