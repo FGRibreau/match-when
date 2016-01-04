@@ -38,15 +38,17 @@ function match(/* args... */){
     return a.position < b.position ? -1 : 1;
   });
 
-  if(Object.getOwnPropertySymbols(obj).indexOf(_catchAllSymbol) === -1){
-    throw new MissingCatchAllPattern();
+  if(Object.getOwnPropertySymbols(obj).indexOf(_catchAllSymbol) !== -1){
+    matchers.push(when.unserialize(_catchAllSymbol, obj[_catchAllSymbol]));
   }
-
-  // add catch-all pattern at the end
-  matchers.push(when.unserialize(_catchAllSymbol, obj[_catchAllSymbol]));
 
   const calculateResult = function(input){
     const matched = matchers.find((matcher) => matcher.match(input));
+
+    if (!matched) {
+      throw new MissingCatchAllPattern();
+    }
+
     return typeof matched.result === 'function' ? matched.result(input) : matched.result;
   };
 

@@ -18,11 +18,30 @@ describe('when multiple values can be hit', () => {
 describe('match', () => {
   const input = [{protocol: 'HTTP', i:10}, {protocol: 'AMQP', i:11}, {protocol: 'AMQP', i:5}, {protocol: 'WAT', i:3}];
 
-  it('throws if a catch-all pattern was not specified', () => {
-    t.throws(() => input.map(match({
+  it('does not require a catch-all at the definition of the match', () => {
+    t.doesNotThrow(() => match({
       [when({protocol:'HTTP'})]: (o) => o.i+1,
       [when({protocol:'AMQP'})]: (o) => o.i+2,
-    })));
+    }));
+  });
+
+  describe('when matching without a catch-all', function () {
+    beforeEach(function () {
+      this.doMatch = match({
+        [when('value')]: 42,
+        [when('other value')]: 99
+      });
+    });
+
+    it('works when a match is hit', function () {
+      t.strictEqual(this.doMatch('value'), 42);
+    });
+
+    it('throws an Error when no matches are hit', function () {
+      t.throws(() => {
+        this.doMatch('not a value');
+      });
+    });
   });
 
   describe('match(<input>, specification)', () => {
