@@ -2,7 +2,7 @@
 
 
 
-[![Circle CI](https://img.shields.io/circleci/project/FGRibreau/match-when/master.svg)](https://circleci.com/gh/FGRibreau/match-when/tree/master) ![deps](https://img.shields.io/david/fgribreau/match-when.svg) ![Version](https://img.shields.io/github/tag/fgribreau/match-when.svg) ![extra](https://img.shields.io/badge/actively%20maintained-yes-ff69b4.svg) [![Twitter Follow](https://img.shields.io/twitter/follow/fgribreau.svg?style=social)](https://twitter.com/FGRibreau)
+[![Circle CI](https://img.shields.io/circleci/project/FGRibreau/match-when/master.svg?style=flat)](https://circleci.com/gh/FGRibreau/match-when/tree/master) ![deps](https://img.shields.io/david/fgribreau/match-when.svg?style=flat) ![Version](https://img.shields.io/github/tag/fgribreau/match-when.svg?style=flat) ![extra](https://img.shields.io/badge/actively%20maintained-yes-ff69b4.svg?style=flat) [![Twitter Follow](https://img.shields.io/twitter/follow/fgribreau.svg?style=flat)](https://twitter.com/FGRibreau)
 
 <!-- [![Downloads](http://img.shields.io/npm/dm/match-when.svg)](https://www.npmjs.com/package/match-when)
 ![NPM](https://nodei.co/npm/match-when.png?downloadRank=true) ![NPM](https://nodei.co/npm-dl/match-when.png?months=3&height=2)
