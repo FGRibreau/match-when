@@ -1,5 +1,20 @@
 ## Change Log
 
+### v2.0.0 (2016/01/05 09:33 +00:00)
+- [f663aa7](https://github.com/FGRibreau/match-when/commit/f663aa79b40e89d5909fe637c8e184678d96ba99) Release v2.0.0. (@FGRibreau)
+- [#12](https://github.com/FGRibreau/match-when/pull/12) Merge pull request #12 from mjgpy3/feature_remove_required_catch_all (@mjgpy3)
+- [724ef2f](https://github.com/FGRibreau/match-when/commit/724ef2fbadc1711ff79e1cba82da0b3f4736c7fc) feat(remove catch-all requirement at define-time) (@mjgpy3)
+- [#11](https://github.com/FGRibreau/match-when/pull/11) Merge pull request #11 from christian-fei/master (@christian-fei)
+- [b9bcdd3](https://github.com/FGRibreau/match-when/commit/b9bcdd3aaedfc0949a806516afafc327d7e0f2ee) rephrased tests without 'should' (@christian-fei)
+- [b6e82b8](https://github.com/FGRibreau/match-when/commit/b6e82b87aaa1523daaf4d8b4210fc96608818504) Update README.md (@FGRibreau)
+- [f275a9c](https://github.com/FGRibreau/match-when/commit/f275a9cbd753b4c75a73f65ac1642ae0709ad517) Update README.md (@FGRibreau)
+- [f82460d](https://github.com/FGRibreau/match-when/commit/f82460d11d66639eab8e05dc1e209b45fb6b7e9c) docs(readme) (@FGRibreau)
+- [b96b197](https://github.com/FGRibreau/match-when/commit/b96b19744a46780dce78bc0b6f8d9ee2e30eacbf) docs(readme) (@FGRibreau)
+- [6adf65b](https://github.com/FGRibreau/match-when/commit/6adf65b4340925d409fbf1060a6546cc1d7d9fec) docs(readme) (@FGRibreau)
+- [#7](https://github.com/FGRibreau/match-when/pull/7) Merge pull request #7 from StevenACoffman/master (@StevenACoffman)
+- [08314a4](https://github.com/FGRibreau/match-when/commit/08314a492dae207d3af5ffbfbd3f0f3d5080b16f) Minor cleaning, avoid confusing with Function.prototype.call() (@StevenACoffman)
+- [eb309b3](https://github.com/FGRibreau/match-when/commit/eb309b340a2346b2edb3bdd2ac43a14726eeecd0) docs(changelog): updated (@FGRibreau)
+
 ### v1.3.1 (2015/12/31 10:03 +00:00)
 - [e6e200d](https://github.com/FGRibreau/match-when/commit/e6e200d010ba031523fe0a4420f458309d41c9b0) Release v1.3.1. (@FGRibreau)
 - [#6](https://github.com/FGRibreau/match-when/pull/6) Merge pull request #6 from FGRibreau/ISSUE-2-fix-unordered-js-objects (@FGRibreau)
