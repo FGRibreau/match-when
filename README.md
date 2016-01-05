@@ -1,5 +1,8 @@
 ### match-when - Pattern matching for modern JavaScript 
-[![Circle CI](https://circleci.com/gh/FGRibreau/match-when/tree/master.svg?style=svg)](https://circleci.com/gh/FGRibreau/match-when/tree/master) [![Deps](https://david-dm.org/FGRibreau/if-exp.png)](https://david-dm.org/FGRibreau/match-when) [![Version](http://badge.fury.io/js/match-when.png)](http://badge.fury.io/js/match-when) ![extra](https://img.shields.io/badge/actively%20maintained-yes-ff69b4.svg)
+
+
+
+[![Circle CI](https://img.shields.io/circleci/project/FGRibreau/match-when/master.svg)](https://circleci.com/gh/FGRibreau/match-when/tree/master) ![deps](https://img.shields.io/david/fgribreau/match-when.svg) ![Version](https://img.shields.io/github/tag/fgribreau/match-when.svg) ![extra](https://img.shields.io/badge/actively%20maintained-yes-ff69b4.svg) [![Twitter Follow](https://img.shields.io/twitter/follow/fgribreau.svg?style=social)](https://twitter.com/FGRibreau)
 
 <!-- [![Downloads](http://img.shields.io/npm/dm/match-when.svg)](https://www.npmjs.com/package/match-when)
 ![NPM](https://nodei.co/npm/match-when.png?downloadRank=true) ![NPM](https://nodei.co/npm-dl/match-when.png?months=3&height=2)
