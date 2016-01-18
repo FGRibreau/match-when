@@ -114,9 +114,9 @@ parseArgument(process.argv.slice(1)); // displayHelp || displayVersion || (bind
 
 ```js
 const protocols = repositories.map(match({
-  [when.and({useSSH:true}, {useSSH: true})]: 'git+ssh:',
-  [when.and({useSSH:true}, {useHTTP: true})]: 'git+http:',
-  [when.and({useSSH:true}, {useHTTPS: true})]: 'git+https:',
+  [when.and({useGit:true}, {useSSH: true})]: 'git+ssh:',
+  [when.and({useGit:true}, {useHTTP: true})]: 'git+http:',
+  [when.and({useGit:true}, {useHTTPS: true})]: 'git+https:',
   [when()]: 'unsupported:'
 }))
 ```
