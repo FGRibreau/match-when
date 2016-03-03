@@ -27,12 +27,10 @@ require('match-when/register'); // `match` and `when` are now globally available
 Now let's see how we would write a factorial function:
 
 ```js
-function fact(n){
-  return match({
-    [when(0)]: 1,
-    [when()]: (n) => n * fact(n-1)
-  })(n);
-}
+const fact = match({
+  [when(0)]: 1,
+  [when()]: (n) => n * fact(n-1)
+});
 
 fact(10); // 3628800
 ```
