@@ -10,6 +10,7 @@
 
 > Finally a **clear**, **succinct** and *safe* syntax to do Pattern Matching in modern JavaScript. [(backstory)](http://blog.fgribreau.com/2015/12/match-when-pattern-matching-for-modern.html)
 
+
 #### Usage
 
 The setup is pretty simple, simply require the library with `match` and `when` and you are ready to go!
@@ -166,7 +167,17 @@ I will accept PR with their associated tests for the following features:
 
 \* *well, of course, they are not keywords but simple functions*
 
-## iAdvize
+#### Why/How? - the slides
+
+<a href="http://fr.slideshare.net/FGRibreau/implementing-patternmatching-in-javascript-full-version"><p align="center"><img align="center" width="623" alt="capture d ecran 2016-03-17 23 35 44" src="https://cloud.githubusercontent.com/assets/138050/13863273/02044aba-ec99-11e5-8253-ebae7ee39c08.png">
+</p></a>
+
+#### Why/how? - the talk in **french (sorry)**
+
+<a href="https://youtu.be/B1QltudEeds"><p align="center"><img align="center" width="852" alt="capture d ecran 2016-03-17 23 35 44" src="https://cloud.githubusercontent.com/assets/138050/13863627/66eedc9a-ec9b-11e5-89e3-5f2a5fc11f54.png">
+</p></a>
+
+## Development sponsored by iAdvize
 
 <p align="center">
 <a target="_blank" href="https://vimeo.com/121470910"><img style="width:100%" src="https://i.vimeocdn.com/video/509763980.png?mw=638&mh=1080&q=70"></a>
