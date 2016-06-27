@@ -141,13 +141,13 @@ function _match(props){
 
 // mixed -> String
 when.or = function(/* args... */){
-  return _serialize([_patternOR.toString(), Array.prototype.slice.call(arguments)]);
+  return _serialize([_patternOR.toString(), Array.from(arguments)]);
 };
 
 // mixed -> String
 // upcoming...
 when.and = function(/* args... */){
-  return _serialize([_patternAND.toString(), Array.prototype.slice.call(arguments)]);
+  return _serialize([_patternAND.toString(), Array.from(arguments)]);
 };
 
 when.range = function(start, end){
