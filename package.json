@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha {**,*/**}.test.js",
     "test-watch": "mocha -w {**,*/**}.test.js",
+    "update": "updtr",
     "changelog": "github-changes --o $(node -p 'process.env.npm_package_repository_url.split(\"/\")[3];') --r $(node -p 'a=process.env.npm_package_repository_url.split(\"/\");a[a.length-1].split(\".\")[0]') --token $CHANGELOG_GITHUB_TOKEN_FG -f CHANGELOG.md",
     "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master"
   },
@@ -23,8 +24,9 @@
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^3.4.1",
-    "github-changes": "^1.0.0",
-    "mocha": "^2.3.4"
+    "chai": "^3.5.0",
+    "mocha": "^2.3.4",
+    "nyc": "^6.1.1",
+    "updtr": "^0.2.1"
   }
 }
