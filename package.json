@@ -21,6 +21,9 @@
     "type": "git",
     "url": "https://github.com/FGRibreau/match-when.git"
   },
+  "engines":{
+    "node": "6"
+  },
   "browserify": {
     "transform": [
       [
