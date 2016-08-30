@@ -21,9 +21,8 @@ function MissingCatchAllPattern() {
 
 MissingCatchAllPattern.prototype = Object.create(Error.prototype);
 
-function match(/* args... */){
-  const args = Array.from(arguments),
-    obj = args[args.length-1];
+function match(...args){
+  const obj = args[args.length-1];
 
   // pre-compute matchers
   let matchers = [];
@@ -140,14 +139,14 @@ function _match(props){
 }
 
 // mixed -> String
-when.or = function(/* args... */){
-  return _serialize([_patternOR.toString(), Array.prototype.slice.call(arguments)]);
+when.or = function(...args){
+  return _serialize([_patternOR.toString(), args]);
 };
 
 // mixed -> String
 // upcoming...
-when.and = function(/* args... */){
-  return _serialize([_patternAND.toString(), Array.prototype.slice.call(arguments)]);
+when.and = function(...args){
+  return _serialize([_patternAND.toString(), args]);
 };
 
 when.range = function(start, end){
