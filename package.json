@@ -6,6 +6,8 @@
   "scripts": {
     "test": "mocha {**,*/**}.test.js",
     "test-watch": "mocha -w {**,*/**}.test.js",
+    "test-coverage": "nyc --all --lines=96 --functions=92 --branches=94 --statements=96 --check-coverage --reporter=lcov --reporter=cobertura --report-dir=coverage -- mocha {**,*/**}.test.js",
+    "send-coverage": "cat ./coverage/lcov.info | coveralls",
     "update": "updtr",
     "changelog": "github-changes --o $(node -p 'process.env.npm_package_repository_url.split(\"/\")[3];') --r $(node -p 'a=process.env.npm_package_repository_url.split(\"/\");a[a.length-1].split(\".\")[0]') --token $CHANGELOG_GITHUB_TOKEN_FG -f CHANGELOG.md",
     "changelog-git": "npm run changelog && git add CHANGELOG.md && git commit -m 'docs(changelog): updated' && git push origin master"
@@ -27,8 +29,7 @@
   "browserify": {
     "transform": [
       [
-        "babelify",
-        {
+        "babelify", {
           "presets": [
             "es2015"
           ]
@@ -36,9 +37,19 @@
       ]
     ]
   },
+  "nyc": {
+    "exclude": [
+      "node_modules",
+      "dist",
+      "coverage",
+      "webpack.config.js",
+      "test"
+    ]
+  },
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "devDependencies": {
+    "coveralls": "^2.11.12",
     "chai": "^3.5.0",
     "github-changes": "^1.0.2",
     "mocha": "^3.0.2",
