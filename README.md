@@ -11,6 +11,12 @@
 > Finally a **clear**, **succinct** and *safe* syntax to do Pattern Matching in modern JavaScript. [(backstory)](http://blog.fgribreau.com/2015/12/match-when-pattern-matching-for-modern.html)
 
 
+#### Shameless plug
+
+- [Looking for a free **Redis GUI**?](http://bit.ly/2dPZaEB)
+- [Looking for a free **real-time alerting** and monitoring service for Redis?](http://bit.ly/2dPZgw4)
+- [**Charts, simple as a URL**. No more server-side rendering pain, 1 url = 1 chart](http://bit.ly/2dPZfbn)
+
 #### Usage
 
 The setup is pretty simple, simply require the library with `match` and `when` and you are ready to go!
