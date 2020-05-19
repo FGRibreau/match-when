@@ -1,6 +1,6 @@
 {
   "name": "match-when",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "match-when - Pattern matching for modern JavaScript",
   "main": "match.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "url": "https://github.com/FGRibreau/match-when.git"
   },
   "engines": {
-    "node": "6"
+    "node": ">=6"
   },
   "browserify": {
     "transform": [
