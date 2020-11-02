@@ -13,7 +13,7 @@
 
 #### Shameless plug
 
-- [Looking for a free **Redis GUI**?](http://bit.ly/2dPZaEB) [Or for **real-time alerting** & monitoring for Redis?](http://bit.ly/2dPZgw4)
+- [Looking for a managed Keycloak IAM ?](https://www.cloud-iam.com/)
 - [**Charts, simple as a URL**. No more server-side rendering pain, 1 url = 1 chart](http://bit.ly/2dPZfbn)
 
 #### Usage
